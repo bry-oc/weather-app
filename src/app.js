@@ -23,11 +23,9 @@ app.get('', (req,res) => {
 
 app.get('/weather', (req,res) => {
     const address = req.query.address;
-    weatherData(address, (temperature, description, cityName) => {
+    weatherData(address, (error, {temperature, description, cityName}) => {
         if(error) {
-            return res.send({
-                error
-            })
+            console.log(error);
         }
         console.log(temperature, description, cityName);
         res.send({
