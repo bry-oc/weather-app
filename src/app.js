@@ -30,17 +30,18 @@ app.get('/weather', (req,res) => {
             error: "You must enter an address."
         })
     }
-    weatherData(address, (error, {temperature, description, cityName}) => {
+    weatherData(address, (error, {temperature, description, cityName, weatherIcon}) => {
         if(error) {
             return res.send({
                 error: "Please Enter a valid address."
             })
         }
-        console.log(temperature, description, cityName);
-        res.send({
+        console.log(temperature, description, cityName, weatherIcon);
+        return res.send({
             temperature,
             description,
-            cityName
+            cityName,
+            weatherIcon
         })
     })
 });

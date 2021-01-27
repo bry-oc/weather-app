@@ -32,6 +32,8 @@ header {
 h2 {
   font-size: 64px;
   margin-bottom: 16px;
+  text-shadow: #000 0px 0px 3px;
+  -webkit-font-smoothing: antialiased;
 }
 
 
@@ -70,20 +72,22 @@ h2 {
 .widget .weatherIcon {
   flex: 1 100%;
   height: 60%;
-  background: #FAFAFA;
+  background: #fafafa;
   font-family: weathericons;
   display: flex;
   align-items: center;
   justify-content: space-around;
   font-size: 100px;
 }
-.widget .weatherIcon i {
-  padding-top: 30px;
+.widget .weatherIcon img {
+  padding-top: 10px;
+  transform: scale(1.75);
 }
+
 .widget .weatherInfo {
   flex: 0 0 70%;
   height: 40%;
-  background: #080705;
+  background: #252525;
   border-bottom-left-radius: 20px;
   display: flex;
   align-items: center;

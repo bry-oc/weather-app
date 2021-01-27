@@ -3,7 +3,7 @@ var fetchWeather = "/weather"
 const weatherForm = document.querySelector('form');
 const search = document.querySelector('input');
 
-const weatherIcon = document.querySelector('.weatherIcon i');
+const weatherIcon = document.querySelector('.weatherIcon');
 const weatherCondition = document.querySelector('.weatherCondition');
 const tempElement = document.querySelector('.temperature span');
 const locationElement = document.querySelector('.place');
@@ -28,6 +28,7 @@ weatherForm.addEventListener('submit', (event) => {
                 locationElement.textContent = data.cityName;
                 tempElement.textContent = (((data.temperature-273.15)*1.8)+32).toFixed(0) +'\u00B0F / ' + (data.temperature-273.15).toFixed(0) +'\u00B0C';
                 weatherCondition.textContent = data.description;
+                weatherIcon.innerHTML = "<img src=http://openweathermap.org/img/wn/" +data.weatherIcon+ "@2x.png"+"></img>"
             }
         });
     });
