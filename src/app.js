@@ -32,7 +32,9 @@ app.get('/weather', (req,res) => {
     }
     weatherData(address, (error, {temperature, description, cityName}) => {
         if(error) {
-            console.log(error);
+            return res.send({
+                error: "Please Enter a valid address."
+            })
         }
         console.log(temperature, description, cityName);
         res.send({

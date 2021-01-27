@@ -8,11 +8,19 @@ const weatherData = (address, callback) => {
         if(error) {
             callback("Can't fetch data from openweathermap api ", undefined)
         } else {
-            callback(undefined, {
-                temperature: body.main.temp,
-                description: body.weather[0].description,
-                cityName: body.name
-            })
+            if(body.cod == 404){
+                callback(undefined, {
+                    temperature: "NaN",
+                    description: "Please enter a valid location.",
+                    cityName: ""
+                })
+            } else {
+                callback(undefined, {
+                    temperature: body.main.temp,
+                    description: body.weather[0].description,
+                    cityName: body.name
+                })
+            }
         }
     });
 }
