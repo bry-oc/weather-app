@@ -18,7 +18,9 @@ hbs.registerPartials(partialPath);
 app.use(express.static(publicStaticDirPath));
 
 app.get('', (req,res) => {
-    res.send("Hello world, weather app");
+    res.render('index', {
+        title: "Weather App"
+    })
 });
 
 app.get('/weather', (req,res) => {
@@ -42,7 +44,9 @@ app.get('/weather', (req,res) => {
 });
 
 app.get("*", (req,res) => {
-    res.send("Error 404: Page Not Found.")
+    res.render('404', {
+        title: "Page not found."
+    })
 });
 
 app.listen(port, () => {
