@@ -14,12 +14,21 @@ dateElement.textContent =  monthNames[new Date().getMonth()].substring(0,3) + ' 
 
 weatherForm.addEventListener('submit', (event) => {
     event.preventDefault();
-    console.log(search.value);
     locationElement.textContent = "Loading...";
     tempElement.textContent = "";
     weatherCondition.textContent = "";
     const locationAPI = fetchWeather + "?address=" + search.value;
     fetch(locationAPI).then(response => {
-        console.log(response)
+        response.json().then(data => {
+            if(data.error){
+                locationElement.textContent = data.error;
+                tempElement.textContent = "";
+                weatherCondition.textContent = "";
+            } else {
+                locationElement.textContent = data.cityName;
+                tempElement.textContent = (((data.temperature-273.15)*1.8)+32).toFixed(0) +'\u00B0F / ' + (data.temperature-273.15).toFixed(0) +'\u00B0C';
+                weatherCondition.textContent = data.description;
+            }
+        });
     });
 })

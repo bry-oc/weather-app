@@ -89,7 +89,7 @@ h2 {
 .widget .weatherInfo .temperature {
   flex: 0 0 40%;
   width: 100%;
-  font-size: 35px;
+  font-size: 20px;
   display: flex;
   justify-content: space-around;
 }
