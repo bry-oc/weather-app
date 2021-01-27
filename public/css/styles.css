@@ -10,8 +10,9 @@ body {
   display: top;
   flex-direction: column;
   min-height: 100vh;
-  background-image: url("https://images.unsplash.com/photo-1579003593419-98f949b9398f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1952&q=80");
+  background-image: url("https://images.pexels.com/photos/2097628/pexels-photo-2097628.jpeg?cs=srgb&dl=pexels-brett-sayles-2097628.jpg&fm=jpg");
   background-repeat: repeat;
+  background-size: cover;
   background-color: #cccccc;
 }
 
