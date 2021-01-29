@@ -23,27 +23,28 @@ app.get('', (req,res) => {
     })
 });
 
-app.get('/weather', (req,res) => {
-    const address = req.query.address;
-    if(!address) {
-        return res.send({
-            error: "You must enter an address."
-        })
-    }
-    weatherData(address, (error, {temperature, description, cityName, weatherIcon}) => {
-        if(error) {
+app.get('/weather', async (req,res) => {
+    try {
+        const address = req.query.address;
+        if(!address) {
             return res.send({
-                error: "Please Enter a valid address."
-            })
+                error: "You must enter an address."
+            });
         }
-        console.log(temperature, description, cityName, weatherIcon);
-        return res.send({
-            temperature,
-            description,
-            cityName,
-            weatherIcon
-        })
-    })
+        weatherData(address, (error, {temperature, description, cityName, weatherIcon}) => {
+
+            console.log(temperature, description, cityName, weatherIcon);
+            return res.send({
+                temperature,
+                description,
+                cityName,
+                weatherIcon
+            });
+        });
+    } catch(error) {
+        console.log(error);
+    }
+
 });
 
 app.get("*", (req,res) => {
